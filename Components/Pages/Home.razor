@@ -1,0 +1,64 @@
+﻿@page "/"
+@inject NavigationManager NavigationManager
+
+<h3 class="text-center mb-4">Register Page</h3>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-4">Please Register</h5>
+
+                    <div class="form-group mb-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <InputText id="email" class="form-control" @bind-Value="email" placeholder="Enter your email" />
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label for="password" class="form-label">Password:</label>
+                        <InputText id="password" type="password" class="form-control" @bind-Value="password" placeholder="Enter your password" />
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" @onclick="NavigateToSuccess">Submit and go to happy famliy vacation</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string email = "welcome";
+    private string password = "to our page";
+
+    private void NavigateToSuccess()
+    {
+        NavigationManager.NavigateTo("/success");
+    }
+
+
+}
+
+<style>
+    h3{
+        font-weight: bolder;
+
+    }
+    body {
+        background-color: cadetblue;
+        font-weight: bold;
+    }
+
+    .card {
+        background-image: url('picture.jpg'); 
+        background-size: cover;
+        background-position: center center; 
+        background-repeat: no-repeat;
+        border-radius: 15px;
+        padding: 20px;
+        color: white; 
+    }
+</style>
+
