@@ -16,7 +16,7 @@
                     </div>
 
                     <div class="form-group mb-4">
-                        <label for="password" class="form-label">Password:</label>
+                        <label for="password" class="form-label">Suggested Password:</label>
                         <InputText id="password" type="password" class="form-control" @bind-Value="password" placeholder="Enter your password" />
                     </div>
 
@@ -30,11 +30,15 @@
 </div>
 
 @code {
+    static Random rnd = new Random();
+    static int Num = rnd.Next(1,1000000000);
+    static char Char = (char)rnd.Next('a','z'+1);
     private string email = "welcome";
-    private string password = "to our page";
+    private string password = ""+Char+Num;
 
     private void NavigateToSuccess()
     {
+        Console.WriteLine("email = "+email+", password = "+password);
         NavigationManager.NavigateTo("/success");
     }
 
